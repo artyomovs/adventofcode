@@ -1,0 +1,17 @@
+kind: pipeline
+type: docker
+name: greeting
+
+steps:
+- name: main
+  image: alpine
+  commands:
+  - echo hello world
+
+- name: dev
+  image: alpine
+  commands:
+  - echo bonjour monde
+  when:
+    branch:
+    - dev
