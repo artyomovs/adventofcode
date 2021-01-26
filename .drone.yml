@@ -3,15 +3,8 @@ type: docker
 name: greeting
 
 steps:
-- name: main
-  image: alpine
+- name: first
+  image: python:latest
   commands:
-  - echo hello world
-
-- name: dev
-  image: alpine
-  commands:
-  - echo bonjour monde
-  when:
-    branch:
-    - dev
+  - pip install -r requirements.txt
+  - pytest
