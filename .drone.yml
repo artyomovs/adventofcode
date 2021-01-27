@@ -3,8 +3,19 @@ type: docker
 name: greeting
 
 steps:
-- name: first
+- name: test with pytest
   image: python:latest
   commands:
   - pip install -r requirements.txt
   - pytest
+
+- name: scp files
+  image: appleboy/drone-scp
+  settings:
+    host:
+      ec2-3-17-73-80.us-east-2.compute.amazonaws.com
+    user: ubuntu
+    password: Ydn11bbmm
+    port: 22
+    target: /var/code/
+    source: *
