@@ -1,4 +1,7 @@
-with open("input.txt", "r") as f:
+import pathlib
+
+
+with open(f"{pathlib.Path(__file__).parent.absolute()}/input.txt", "r") as f:
     lines = f.read().splitlines()
 
 numbers = list()
